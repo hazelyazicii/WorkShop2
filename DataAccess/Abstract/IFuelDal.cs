@@ -2,6 +2,8 @@
 using Entities.Concrete;
 
 namespace DataAccess.Abstract;
-public interface IModelDal : IEntityRepository<Model, int>
+
+public interface IFuelDal : IEntityRepository<Fuel, int>
 {
+    
 }

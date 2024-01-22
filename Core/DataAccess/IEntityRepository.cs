@@ -7,4 +7,5 @@ public interface IEntityRepository<TEntity, TEntityId>
     public void Add(TEntity entity);
     public void Update(TEntity entity);
     public void Delete(TEntity entity);
+    int GetHashCode();
 }

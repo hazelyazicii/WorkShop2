@@ -1,8 +1,8 @@
 ﻿using Business;
 using Business.Abstract;
 using Business.Concrete;
-using Business.Requests.Brand;
-using Business.Responses.Brand;
+using Business.Requests.Model;
+using Business.Responses.Model;
 using DataAccess.Abstract;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
@@ -13,29 +13,28 @@ namespace WebAPI.Controllers;
 
 [Route("api/[controller]")]
 [ApiController]
-public class BrandsController : ControllerBase
+public class ModelsController : ControllerBase
 {
-    private readonly IBrandService _brandService; // Field
+    private readonly IModelService _ModelService;
 
-    public BrandsController(IBrandService brandService)
+    public ModelsController(IModelService ModelService)
     {
-        // Her HTTP Request için yeni bir Controller nesnesi oluşturulur.
-        _brandService = brandService;
-        // Daha sonra IoC Container yapımızı kurduğumuz Dependency Injection ile daha verimli hale getiricez.
+     _ModelService = ModelService;   
     }
 
-    public GetBrandListResponse GetList([FromQuery] GetBrandListRequest request) // Referans tipleri varsayılan olarak request body'den alır.
+    public GetModelListResponse GetList([FromQuery] GetModelListRequest request)
     {
-        GetBrandListResponse response = _brandService.GetList(request);
-        return response; 
+        GetModelListResponse response = _ModelService.GetList(request);
+        return response;
     }
 
-    public ActionResult<AddBrandResponse> Add(AddBrandRequest request)
+    public ActionResult<AddModelResponse> Add(AddModelRequest request)
     {
         try
         {
-            AddBrandResponse response = _brandService.Add(request);
+            AddModelResponse response = _ModelService.Add(request);
 
+            
             return CreatedAtAction(nameof(GetList), response); 
         }
         catch (Core.CrossCuttingConcerns.Exceptions.BusinessException exception)

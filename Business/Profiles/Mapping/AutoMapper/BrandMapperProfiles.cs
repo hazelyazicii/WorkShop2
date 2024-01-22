@@ -11,10 +11,10 @@ public class BrandMapperProfiles : Profile
     public BrandMapperProfiles()
     {
         CreateMap<AddBrandRequest, Brand>();
-        CreateMap<Brand, AddBrandResponse>();
+        CreateMap<Brand, AddCarResponse>();
 
-        CreateMap<Brand, BrandListItemDto>();
-        CreateMap<IList<Brand>, GetBrandListResponse>()
+        CreateMap<Brand, CarListItemDto>();
+        CreateMap<IList<Brand>, GetCarListResponse>()
             .ForMember(
                 destinationMember: dest => dest.Items,
                 memberOptions: opt => opt.MapFrom(mapExpression: src => src)

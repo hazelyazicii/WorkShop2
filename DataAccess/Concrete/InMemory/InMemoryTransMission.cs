@@ -4,8 +4,8 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.InMemory;
 
-public class InMemoryBrandDal : InMemoryEntityRepositoryBase<Brand, int>, IBrandDal
-{ 
+public class InMemoryTransMissionDal : InMemoryEntityRepositoryBase<TransMission, int>, ITransMissionDal
+{
     protected override int generateId()
     {
         int nextId = _entities.Count == 0 

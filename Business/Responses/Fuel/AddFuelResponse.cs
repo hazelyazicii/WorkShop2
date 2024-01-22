@@ -1,12 +1,12 @@
-﻿namespace Business.Responses.Brand;
+﻿namespace Business.Responses.Fuel;
 
-public class AddBrandResponse
+public class AddFuelResponse
 { 
     public int Id { get; set; }
     public string Name { get; set; }
     public DateTime CreatedAt { get; set; }
 
-    public AddBrandResponse(int id, string name, DateTime createdAt)
+    public AddFuelResponse(int id, string name, DateTime createdAt)
     {
         Id = id;
         Name = name;

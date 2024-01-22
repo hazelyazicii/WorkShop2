@@ -4,8 +4,8 @@ using Entities.Concrete;
 
 namespace DataAccess.Concrete.InMemory;
 
-public class InMemoryBrandDal : InMemoryEntityRepositoryBase<Brand, int>, IBrandDal
-{ 
+public class InMemoryFuelDal : InMemoryEntityRepositoryBase<Fuel, int>, IFuelDal
+{
     protected override int generateId()
     {
         int nextId = _entities.Count == 0 
@@ -13,4 +13,6 @@ public class InMemoryBrandDal : InMemoryEntityRepositoryBase<Brand, int>, IBrand
             : _entities.Max(e => e.Id) + 1;
         return nextId;
     }
+
+   
 }
